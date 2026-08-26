@@ -2,7 +2,7 @@
 
 A 10-slide, two-hour practical workshop deck for an Enterprise Singapore audience. This is a separate iteration of the original two-day `code-with-ai` deck, with its own repository and Vercel project.
 
-The workshop is demo-first: about 30 minutes of slides establish the working loop, context, app anatomy, and a concrete quality bar. The remaining 90 minutes are reserved for building and testing an app live in Codex, with a short comparison to Cursor.
+The workshop is demo-first: about 30 minutes of slides establish agentic work, the working loop, context, proof, a concrete quality bar, and app anatomy. The remaining 90 minutes are reserved for building and testing an app across Codex and Cursor.
 
 ## Run locally
 
@@ -26,8 +26,8 @@ Open `http://localhost:3000/slides/1`.
 | Time | Segment | Slides |
 | --- | --- | --- |
 | 0–5 min | Opening and audience pulse | 1–2 |
-| 5–30 min | Working loop, context, brief, app anatomy, proof, and quality bar | 3–9 |
-| 30–120 min | Live app build in Codex; same workflow shown briefly in Cursor; Q&A throughout | 10 |
+| 5–30 min | Agentic work, working loop, context, brief, proof, quality bar, and app anatomy | 3–9 |
+| 30–120 min | Live app build demonstrated in Codex and Cursor; Q&A throughout | 10 |
 
 Only the first 30 minutes are slide-led. Slide 10 is the handoff into the live build, not another teaching segment.
 

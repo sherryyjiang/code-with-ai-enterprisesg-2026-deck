@@ -147,16 +147,6 @@ const slides: Slide[] = [
     ),
   },
   {
-    section: "The working loop",
-    title: "The basic working loop",
-    render: () => (
-      <SimpleFrame eyebrow="How to work with coding agents" title={<>Most of the work is <Accent>a loop.</Accent></>}>
-        <WorkingLoop />
-        <p className="center-note">The loop stays. The project gets more ambitious.</p>
-      </SimpleFrame>
-    ),
-  },
-  {
     section: "Foundations",
     title: "What makes work agentic",
     render: () => (
@@ -166,6 +156,16 @@ const slides: Slide[] = [
           <div className="formula-arrow">→</div>
           <div className="formula-live"><Wrench /><span>AGENTIC WORK</span><strong>model + instructions + tools + permissions</strong></div>
         </div>
+      </SimpleFrame>
+    ),
+  },
+  {
+    section: "The working loop",
+    title: "The basic working loop",
+    render: () => (
+      <SimpleFrame eyebrow="How to work with coding agents" title={<>Most of the work is <Accent>a loop.</Accent></>}>
+        <WorkingLoop />
+        <p className="center-note">The loop stays. The project gets more ambitious.</p>
       </SimpleFrame>
     ),
   },
@@ -194,21 +194,6 @@ const slides: Slide[] = [
           <div><b>CONTEXT</b><strong>What does it need to understand?</strong><span>young users · job data · 10 match factors · examples</span></div>
           <div><b>ACCESS + RULES</b><strong>What may it read, change, or never touch?</strong><span>synthetic profiles · no real application sent</span></div>
           <div><b>PROOF</b><strong>What evidence would earn trust?</strong><span>time the flow · explain matches · save · submit test</span></div>
-        </div>
-      </SimpleFrame>
-    ),
-  },
-  {
-    section: "App anatomy",
-    title: "A Real App Is More Than a Screen",
-    render: () => (
-      <SimpleFrame eyebrow="What the agent is actually building" className="app-anatomy-slide" title={<>A real app is <Accent>more than a screen.</Accent></>}>
-        <div className="split app-layout">
-          <div>
-            <p className="lead">More layers create more capability — and more consequences.</p>
-            <p className="subtle">You do not need to master every layer today. You need a map.</p>
-          </div>
-          <AppStack />
         </div>
       </SimpleFrame>
     ),
@@ -258,14 +243,29 @@ const slides: Slide[] = [
     ),
   },
   {
+    section: "App anatomy",
+    title: "A Real App Is More Than a Screen",
+    render: () => (
+      <SimpleFrame eyebrow="What the agent is actually building" className="app-anatomy-slide" title={<>A real app is <Accent>more than a screen.</Accent></>}>
+        <div className="split app-layout">
+          <div>
+            <p className="lead">More layers create more capability — and more consequences.</p>
+            <p className="subtle">You do not need to master every layer today. You need a map.</p>
+          </div>
+          <AppStack />
+        </div>
+      </SimpleFrame>
+    ),
+  },
+  {
     section: "Demo",
     title: "Build the app with AI",
     render: () => (
-      <SimpleFrame eyebrow="Now let’s build" className="demo-tools-slide" title={<>I’ll build it in <Accent>Codex</Accent> — and show the same loop in Cursor.</>}>
+      <SimpleFrame eyebrow="Now let’s build" className="demo-tools-slide" title={<>I’ll demo the same build loop in <Accent>Codex and Cursor.</Accent></>}>
         <div className="tool-stage demo-tool-stage">
-          <div className="tool-primary"><Code2 /><span className="tool-label">PRIMARY DEMO</span><h2>Codex</h2><p>Inspect the project, plan the work, build, and prove the result.</p></div>
+          <div className="tool-primary"><Code2 /><h2>Codex</h2><p>Build with an agent working across the project.</p></div>
           <div className="tool-bridge">same brief · same loop</div>
-          <div className="tool-secondary"><Braces /><span className="tool-label">SECOND SURFACE</span><h2>Cursor</h2><p>Continue in the same codebase from another coding surface.</p></div>
+          <div className="tool-secondary"><Braces /><h2>Cursor</h2><p>Build with AI inside the code editor.</p></div>
         </div>
         <p className="demo-tools-line">One app. Two tools. One standard of proof.</p>
       </SimpleFrame>

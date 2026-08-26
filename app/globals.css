@@ -190,7 +190,7 @@
 
 .demo-tools-slide .slide-title{font-size:clamp(40px,4.8vw,78px);margin-bottom:4vh}
 .demo-tool-stage>div:not(.tool-bridge){min-height:25vh}
-.demo-tool-stage .tool-label{display:block;margin-top:2vh;font:600 13px var(--mono);letter-spacing:.08em;color:var(--orange)}
+.demo-tool-stage .tool-primary,.demo-tool-stage .tool-secondary{border-color:var(--line);box-shadow:none}
 .demo-tool-stage .tool-bridge{font-size:14px;color:var(--cream);line-height:1.45;text-align:center;max-width:110px}
 .demo-tools-line{font:500 italic clamp(21px,2vw,33px) var(--serif),serif;color:var(--cream);text-align:center;margin:4vh auto 0}
 

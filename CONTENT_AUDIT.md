@@ -14,9 +14,9 @@ Enduring concepts stay: iterative work, context, a clear brief, the layers behin
 | 2 | What You’ll Leave With | **Cut as a slide** | The workshop promise is stated verbally so the deck reaches the working method faster. |
 | 3 | Get Your Credits | **Cut** | Event-specific logistics do not help the build. |
 | 4 | What Is an LLM? | **Cut as a standalone** | Define verbally only if the room needs it. |
-| 5 | What Is an Agent? | **Keep + simplify** | Slide 4 isolates the practical distinction: tools, instructions, and permissions. |
+| 5 | What Is an Agent? | **Keep + simplify** | Slide 3 isolates the practical distinction: tools, instructions, and permissions. |
 | 6 | Context Engineering | **Keep + restore** | Returns as slide 5 because project files, users, constraints, examples, and references directly affect build quality. |
-| 7 | The Basic Working Loop | **Keep + restore** | Returns as slide 3: Context → Clarify → Plan → Build → Review. It replaces the detailed session map. |
+| 7 | The Basic Working Loop | **Keep + restore** | Returns as slide 4: Context → Clarify → Plan → Build → Review. It follows the agentic distinction with a practical method. |
 | 8 | You Set the Dials | **Cut** | Useful nuance, but not required before this demo. |
 | 9 | Clear Thinking Beats Perfect Prompting | **Keep + update** | Slide 6 uses the four-field work brief: outcome, context, access and rules, proof. |
 | 10 | Not Knowing Is Part of the Process | **Cut** | Encouragement can happen during the live build. |
@@ -25,35 +25,35 @@ Enduring concepts stay: iterative work, context, a clear brief, the layers behin
 | 13 | Start With Codex | **Keep + update** | Slide 10 becomes a general demo handoff featuring Codex and Cursor without a feature comparison. |
 | 14 | Watch the Loop | **Merge** | The live build demonstrates the loop instead of describing it again. |
 | 15 | Day 2: The New Meta | **Cut** | The day transition no longer exists. |
-| 16 | From Answers to Coordinated Action | **Merge** | Its durable point is covered by slide 4’s tools-and-permissions distinction. |
+| 16 | From Answers to Coordinated Action | **Merge** | Its durable point is covered by slide 3’s tools-and-permissions distinction. |
 | 17 | Inner Loop / Outer Loop | **Cut from V2** | The human-gate ladder repeated ideas better shown through review and browser testing. |
-| 18 | A Real App Is More Than a Screen | **Keep + restore** | Returns as slide 7 so newcomers can see interface, logic, data, APIs, authentication, deployment, and logs as one system. |
+| 18 | A Real App Is More Than a Screen | **Keep + restore** | Returns as slide 9, directly after the quality criteria, so newcomers can see what must exist behind the tested experience. |
 | 19 | A Model Is Capable—but Unprepared | **Merge** | Its lesson is central to slide 5’s context engineering. |
 | 20 | The Harness Prepares the Agent | **Cut as terminology** | “Harness” is unnecessary vocabulary for this audience. |
 | 21 | Rules | **Merge** | Rules remain one field in the brief. |
 | 22 | Skills | **Cut** | Advanced follow-on material, not a prerequisite for the build. |
 | 23 | The Harness Improves Over Time | **Merge** | Review feeds learning back into the working loop. |
 | 24 | Tools, MCPs, and Plugins | **Cut as taxonomy** | The demo shows tools in use without teaching a catalogue. |
-| 25 | Verify: Proof Beats Vibes | **Keep + update** | Slide 8 asks for representative cases, change inspection, unknowns, and rollback. |
+| 25 | Verify: Proof Beats Vibes | **Keep + update** | Slide 7 asks for representative cases, change inspection, unknowns, and rollback. |
 | 26 | Spin Up a Team | **Cut** | Multi-agent spectacle is not essential for newcomers. |
 | 27 | The Software Factory | **Cut** | Orchestration architecture is advanced material. |
 | 28 | Subagents Parallelize Independent Work | **Cut** | Useful production technique, not a participant learning objective. |
-| 29 | Long-Running Work Needs Visibility | **Merge** | Review and logs remain visible in slides 7–8 and the live runbook. |
-| 30 | A Bigger Product Mission | **Replace** | Slide 9 uses a youth job-finding app to show how an ambition becomes five observable quality checks. |
+| 29 | Long-Running Work Needs Visibility | **Merge** | Review and logs remain visible in slides 7 and 9 and the live runbook. |
+| 30 | A Bigger Product Mission | **Replace** | Slide 8 uses a youth job-finding app to show how an ambition becomes five observable quality checks. |
 | 31 | How Software Gets Built Is Changing | **Cut from V2** | A closing-principles slide would delay the demo and repeat the opening promise. |
 
 ## Resulting 10-slide narrative
 
 1. Establish the workshop promise.
 2. Hear the room’s experience, needs, and trust threshold in their own words.
-3. Establish one transferable working loop.
-4. Explain what makes the work agentic without repeating the loop.
+3. Explain what makes the work agentic.
+4. Establish one transferable working loop.
 5. Show how context changes capability.
 6. Turn intent into a clear work brief.
-7. Reveal the layers behind a real app.
-8. Define proof before trusting the result.
-9. Translate “good” into testable product criteria.
-10. Hand directly into a Codex build and a short Cursor comparison.
+7. Define proof before trusting the result.
+8. Translate “good” into testable product criteria.
+9. Reveal the app layers required to satisfy those criteria.
+10. Hand directly into demonstrations in Codex and Cursor.
 
 ## V2 editorial changes
 
@@ -62,4 +62,4 @@ Enduring concepts stay: iterative work, context, a clear brief, the layers behin
 - Removed the pilot-scope, autonomy ladder, demo debrief, participant exercise, and closing-principles slides to protect the demo time.
 - Removed the duplicate five-step strip from the agentic-work slide.
 - Replaced the synthetic-sales example with a youth job-finding app and five observable acceptance checks.
-- Reworked the last slide as a clean handoff into Codex and Cursor.
+- Reworked the last slide as an equal handoff into Codex and Cursor, without primary or secondary labels.
