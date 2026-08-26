@@ -6,13 +6,20 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
+  Braces,
   Check,
   ChevronRight,
   CircleHelp,
+  Code2,
+  Database,
+  Eye,
+  Fingerprint,
+  Gauge,
   Maximize2,
   Menu,
   Minimize2,
-  ShieldCheck,
+  PlugZap,
+  Rocket,
   Wrench,
   X,
 } from "lucide-react";
@@ -50,15 +57,54 @@ const SimpleFrame = ({
 );
 
 function WorkingLoop() {
-  const items = ["Frame", "Inspect", "Plan", "Build", "Prove"];
+  const items = ["Context", "Clarify", "Plan", "Build", "Review"];
 
   return (
-    <div className="loop-row compact-loop">
+    <div className="loop-row">
       {items.map((item, index) => (
         <div className="loop-step" key={item}>
           <div className="loop-number">0{index + 1}</div>
           <strong>{item}</strong>
           {index < items.length - 1 && <ChevronRight className="loop-arrow" />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function OrbitVisual() {
+  return (
+    <div className="orbit" aria-label="A model surrounded by the context it needs">
+      <div className="orbit-ring ring-a" />
+      <div className="orbit-ring ring-b" />
+      <div className="orbit-core">MODEL</div>
+      <span className="orbit-item oi-1">project files</span>
+      <span className="orbit-item oi-2">user needs</span>
+      <span className="orbit-item oi-3">constraints</span>
+      <span className="orbit-item oi-4">examples</span>
+      <span className="orbit-item oi-5">references</span>
+    </div>
+  );
+}
+
+function AppStack() {
+  const rows = [
+    [Eye, "Interface", "what people see"],
+    [Braces, "Logic", "what the app decides"],
+    [Database, "Database", "what the app remembers"],
+    [PlugZap, "APIs", "what the app connects to"],
+    [Fingerprint, "Authentication", "who can do what"],
+    [Rocket, "Deployment", "where the app lives"],
+    [Gauge, "Logs", "how we know what happened"],
+  ] as const;
+
+  return (
+    <div className="app-stack">
+      {rows.map(([Icon, label, detail], index) => (
+        <div className={`stack-layer ${index < 3 ? "live-layer" : ""}`} key={label} style={{ "--i": index } as React.CSSProperties}>
+          <Icon />
+          <strong>{label}</strong>
+          <span>{detail}</span>
         </div>
       ))}
     </div>
@@ -91,28 +137,22 @@ const slides: Slide[] = [
     section: "Opening",
     title: "Audience pulse",
     render: () => (
-      <SimpleFrame eyebrow="Before we build · 3 quick show-of-hands" title={<>Let’s find the room’s <Accent>starting point.</Accent></>}>
-        <div className="pulse-list concise">
-          <div><b>01</b><span>How often do you use AI at work?</span><small>never · tried it · weekly · daily</small></div>
-          <div><b>02</b><span>Which workflow would save your team the most time?</span><small>sales · service · operations · finance · product</small></div>
-          <div><b>03</b><span>What may a pilot safely access and do today?</span><small>approved data · draft · internal use · connected action · not sure</small></div>
+      <SimpleFrame eyebrow="Before we build · let’s hear from the room" className="pulse-slide" title={<>Let’s find the room’s <Accent>starting point.</Accent></>}>
+        <div className="pulse-list concise open-questions">
+          <div><b>01</b><span>Where do you already use AI at work — if at all?</span></div>
+          <div><b>02</b><span>Which workflow would you most like to improve?</span></div>
+          <div><b>03</b><span>What would make an AI-built result feel trustworthy to you?</span></div>
         </div>
       </SimpleFrame>
     ),
   },
   {
-    section: "Outcomes",
-    title: "Today’s outcome",
+    section: "The working loop",
+    title: "The basic working loop",
     render: () => (
-      <SimpleFrame eyebrow="The 120-minute build map" className="outcomes-slide" title={<>One loop. One demo. <Accent>One next move.</Accent></>}>
-        <div className="outcome-list">
-          <div><b>01</b><h2>Frame the right task</h2><p>Choose a useful workflow with a clear outcome and safe boundaries.</p></div>
-          <div><b>02</b><h2>Direct an agent</h2><p>Give context, review the plan, and keep the first build intentionally small.</p></div>
-          <div><b>03</b><h2>Judge the result</h2><p>Ask for evidence, test representative cases, and keep a human accountable.</p></div>
-        </div>
-        <div className="session-map">
-          <span><b>5</b> open</span><span><b>20</b> framing</span><span className="session-main"><b>70</b> live build</span><span><b>8</b> debrief</span><span><b>10</b> your turn</span><span><b>7</b> Q&amp;A</span>
-        </div>
+      <SimpleFrame eyebrow="How to work with coding agents" title={<>Most of the work is <Accent>a loop.</Accent></>}>
+        <WorkingLoop />
+        <p className="center-note">The loop stays. The project gets more ambitious.</p>
       </SimpleFrame>
     ),
   },
@@ -120,37 +160,26 @@ const slides: Slide[] = [
     section: "Foundations",
     title: "What makes work agentic",
     render: () => (
-      <SimpleFrame eyebrow="The useful distinction" className="agent-system-slide" title={<>The difference is the tools, permissions,<br />and <Accent>working loop.</Accent></>}>
+      <SimpleFrame eyebrow="The useful distinction" className="agent-system-slide agent-system-clean" title={<>The difference is instructions, tools, permissions,<br />and <Accent>constrained action.</Accent></>}>
         <div className="agent-formula">
           <div className="formula-muted"><CircleHelp /><span>CHAT</span><strong>model + conversation</strong></div>
           <div className="formula-arrow">→</div>
           <div className="formula-live"><Wrench /><span>AGENTIC WORK</span><strong>model + instructions + tools + permissions</strong></div>
         </div>
-        <WorkingLoop />
       </SimpleFrame>
     ),
   },
   {
-    section: "Choose the task",
-    title: "Start with the smallest useful slice",
+    section: "Foundations",
+    title: "Context Engineering",
     render: () => (
-      <SimpleFrame eyebrow="Your first pilot" className="pilot-slide" title={<>Start where mistakes are cheap and <Accent>feedback is fast.</Accent></>}>
-        <div className="split pilot-layout">
-          <div className="complexity-rings">
-            <div className="complexity-core">ONE USEFUL<br />FLOW</div>
-            <div className="complexity-ring cr-1"><span>one owner</span></div>
-            <div className="complexity-ring cr-2"><span>human-reviewed</span></div>
-            <div className="complexity-ring cr-3"><span>one measurable outcome</span></div>
-            <div className="complexity-ring cr-4"><span>approved or synthetic data</span></div>
-            <div className="complexity-ring cr-5"><span>connected actions later</span></div>
+      <SimpleFrame eyebrow="The model needs your situation" className="context-slide" title={<>Context engineering makes the model <Accent>more capable.</Accent></>}>
+        <div className="split orbit-layout">
+          <div>
+            <p className="lead">Without the right context, even a powerful model is guessing about your project, preferences, users, and definition of done.</p>
+            <div className="context-callout">Better context → better decisions → better work.</div>
           </div>
-          <div className="pilot-copy">
-            <p><Check /> Repetitive or painful</p>
-            <p><Check /> Easy to inspect</p>
-            <p><Check /> Reversible if wrong</p>
-            <p><Check /> Valuable before full automation</p>
-            <div className="pilot-caution"><ShieldCheck /> Do not automate high-impact customer decisions, money movement, or sensitive-data workflows in a first pilot.</div>
-          </div>
+          <OrbitVisual />
         </div>
       </SimpleFrame>
     ),
@@ -161,29 +190,25 @@ const slides: Slide[] = [
     render: () => (
       <SimpleFrame eyebrow="Clear thinking beats magic prompting" title={<>Give the agent a clear job —<br /><Accent>not a clever prompt.</Accent></>}>
         <div className="brief-board">
-          <div><b>OUTCOME</b><strong>What useful result should exist?</strong><span>“A prioritised follow-up brief”</span></div>
-          <div><b>CONTEXT</b><strong>What does it need to understand?</strong><span>users · examples · files · terminology</span></div>
-          <div><b>ACCESS + RULES</b><strong>What may it read, change, or never touch?</strong><span>approved data · safe preview · preserve scope</span></div>
-          <div><b>PROOF</b><strong>What evidence would earn trust?</strong><span>tests · source trace · change summary · rollback</span></div>
+          <div><b>OUTCOME</b><strong>What useful result should exist?</strong><span>profile → matches → application receipt</span></div>
+          <div><b>CONTEXT</b><strong>What does it need to understand?</strong><span>young users · job data · 10 match factors · examples</span></div>
+          <div><b>ACCESS + RULES</b><strong>What may it read, change, or never touch?</strong><span>synthetic profiles · no real application sent</span></div>
+          <div><b>PROOF</b><strong>What evidence would earn trust?</strong><span>time the flow · explain matches · save · submit test</span></div>
         </div>
       </SimpleFrame>
     ),
   },
   {
-    section: "Control the reach",
-    title: "Know its reach; place the human gate",
+    section: "App anatomy",
+    title: "A Real App Is More Than a Screen",
     render: () => (
-      <SimpleFrame eyebrow="Human judgment does not disappear" className="reach-slide" title={<>Know its reach. Place the <Accent>human gate.</Accent></>}>
-        <div className="accountability-line reach-strip">
-          <span>CHECK ITS REACH</span>
-          <strong>data</strong><strong>identity + access</strong><strong>external actions</strong><strong>trace + rollback</strong>
-        </div>
-        <div className="autonomy-ladder">
-          <div><b>01</b><strong>Draft</strong><span>human uses or discards it</span></div>
-          <div><b>02</b><strong>Grounded answer</strong><span>shows its source</span></div>
-          <div><b>03</b><strong>Proposed action</strong><span>prepares the next step</span></div>
-          <div className="approval-step"><b>04</b><strong>Approved action</strong><span>human checkpoint</span></div>
-          <div className="later-step"><b>05</b><strong>Autonomous action</strong><span>only after controls earn it</span></div>
+      <SimpleFrame eyebrow="What the agent is actually building" className="app-anatomy-slide" title={<>A real app is <Accent>more than a screen.</Accent></>}>
+        <div className="split app-layout">
+          <div>
+            <p className="lead">More layers create more capability — and more consequences.</p>
+            <p className="subtle">You do not need to master every layer today. You need a map.</p>
+          </div>
+          <AppStack />
         </div>
       </SimpleFrame>
     ),
@@ -195,12 +220,12 @@ const slides: Slide[] = [
       <SimpleFrame eyebrow="Proof beats vibes" title={<>Do not ask “does it work?”<br />Ask <Accent>“what proves it?”</Accent></>}>
         <div className="proof-layout">
           <div className="proof-terminal">
-            <span>VERIFICATION RUN</span>
-            <p><Check /> approved or synthetic data</p>
-            <p><Check /> claims trace back to the source</p>
-            <p><Check /> representative + awkward cases pass</p>
-            <p><Check /> preview and change summary reviewed</p>
-            <p><Check /> rollback ready; external action gated</p>
+            <span>PROOF CHECKLIST</span>
+            <p><Check /> safe test data</p>
+            <p><Check /> source-backed claims</p>
+            <p><Check /> main + edge cases pass</p>
+            <p><Check /> preview + diff reviewed</p>
+            <p><Check /> rollback ready; actions gated</p>
           </div>
           <div className="proof-copy">
             <h2>Test the main flow — and the failure you most care about.</h2>
@@ -211,62 +236,38 @@ const slides: Slide[] = [
     ),
   },
   {
+    section: "Quality bar",
+    title: "Define what good means",
+    render: () => (
+      <SimpleFrame eyebrow="Example · a job-finding app for young people" className="good-example-slide" title={<>“Good” means the app passes <Accent>specific tests.</Accent></>}>
+        <div className="quality-example">
+          <div className="quality-context">
+            <span>PRODUCT</span>
+            <strong>A job-finding app for young people</strong>
+            <p>Turn the ambition into checks the agent can build and verify.</p>
+          </div>
+          <div className="quality-checks">
+            <div><b>01</b><span>Complete onboarding in ≤10 minutes.</span></div>
+            <div><b>02</b><span>Use all 10 non-sensitive matching factors.</span></div>
+            <div><b>03</b><span>Explain every match and any missing information.</span></div>
+            <div><b>04</b><span>Save progress and resume later.</span></div>
+            <div><b>05</b><span>Validate the form and return a mocked receipt.</span></div>
+          </div>
+        </div>
+      </SimpleFrame>
+    ),
+  },
+  {
     section: "Demo",
-    title: "Demo brief and acceptance criteria",
+    title: "Build the app with AI",
     render: () => (
-      <SimpleFrame eyebrow="Live build · 70 minutes in Codex" className="demo-brief-slide" title={<>Build a source-linked <Accent>sales follow-up brief.</Accent></>}>
-        <div className="brief-board demo-brief">
-          <div><b>INPUT</b><strong>A synthetic sales CSV</strong><span>messy rows · missing fields · mixed priorities</span></div>
-          <div><b>OUTCOME</b><strong>A prioritised follow-up brief</strong><span>recommendations link back to source rows</span></div>
-          <div><b>BOUNDARY</b><strong>Safe preview; no live CRM write</strong><span>no credentials · no customer contact</span></div>
-          <div><b>ACCEPTANCE</b><strong>Traceable, robust, honest</strong><span>awkward rows handled · uncertainty explicit</span></div>
+      <SimpleFrame eyebrow="Now let’s build" className="demo-tools-slide" title={<>I’ll build it in <Accent>Codex</Accent> — and show the same loop in Cursor.</>}>
+        <div className="tool-stage demo-tool-stage">
+          <div className="tool-primary"><Code2 /><span className="tool-label">PRIMARY DEMO</span><h2>Codex</h2><p>Inspect the project, plan the work, build, and prove the result.</p></div>
+          <div className="tool-bridge">same brief · same loop</div>
+          <div className="tool-secondary"><Braces /><span className="tool-label">SECOND SURFACE</span><h2>Cursor</h2><p>Continue in the same codebase from another coding surface.</p></div>
         </div>
-        <div className="demo-prompt"><span>STOP CONDITION</span><strong>Human approval before any external action</strong></div>
-      </SimpleFrame>
-    ),
-  },
-  {
-    section: "Debrief",
-    title: "What earned trust",
-    render: () => (
-      <SimpleFrame eyebrow="After the demo" title={<>What made the result <Accent>more trustworthy?</Accent></>}>
-        <div className="debrief-grid">
-          <div><b>01 · INSPECTED</b><strong>What did the agent read?</strong></div>
-          <div><b>02 · REACH</b><strong>What could it change?</strong></div>
-          <div><b>03 · INTERVENTION</b><strong>Where did the human redirect it?</strong></div>
-          <div className="evidence-card"><b>04 · EVIDENCE</b><strong>What actually proved the result?</strong></div>
-          <div><b>05 · UNKNOWN</b><strong>What remained unproven?</strong></div>
-        </div>
-      </SimpleFrame>
-    ),
-  },
-  {
-    section: "Your turn",
-    title: "Draft one pilot brief",
-    render: () => (
-      <SimpleFrame eyebrow="6 min draft · 4 min pair-check" className="exercise-slide" title={<>Draft one pilot. Then <Accent>pressure-test it.</Accent></>}>
-        <div className="brief-board exercise-board">
-          <div><b>OUTCOME</b><strong>What useful result?</strong><span>one owner · one measurable change</span></div>
-          <div><b>CONTEXT</b><strong>What does it need?</strong><span>approved files · examples · terminology</span></div>
-          <div><b>BOUNDARIES</b><strong>What stays untouched?</strong><span>data · access · external actions</span></div>
-          <div><b>PROOF</b><strong>What would convince you?</strong><span>happy path · awkward case · human review</span></div>
-        </div>
-        <div className="peer-check"><span>PAIR-CHECK</span><strong>Useful?</strong><strong>Reversible?</strong><strong>Approved data?</strong><strong>Named approver?</strong></div>
-      </SimpleFrame>
-    ),
-  },
-  {
-    section: "Closing",
-    title: "Your next move",
-    render: () => (
-      <SimpleFrame eyebrow="Take it back to work · then Q&A" title={<>Choose one useful, safe workflow<br /><Accent>for next Monday.</Accent></>}>
-        <div className="future-principles">
-          <div><b>01</b><strong>Start with the task, not the tool.</strong></div>
-          <div><b>02</b><strong>Keep the first slice small and reversible.</strong></div>
-          <div><b>03</b><strong>Match autonomy with boundaries.</strong></div>
-          <div><b>04</b><strong>Ask for evidence before trust.</strong></div>
-        </div>
-        <p className="future-line">Start small. Show evidence. Earn more autonomy.</p>
+        <p className="demo-tools-line">One app. Two tools. One standard of proof.</p>
       </SimpleFrame>
     ),
   },

@@ -2,151 +2,132 @@
 
 ## Facilitation premise
 
-This is not an AI survey or a prompt-writing lecture. The audience should leave with one contained workflow they can pilot safely, one method for directing an agent, and one method for deciding whether the result earned trust.
+The slides should take about 30 minutes. The app build is the workshop: participants should see the same Context → Clarify → Plan → Build → Review loop repeatedly, including when the first attempt is imperfect.
 
-Use only approved or synthetic information in the live build. Do not paste customer, employee, financial, confidential, or personal data into an unapproved tool. The workshop is practical guidance, not legal advice; organisation and sector policies still apply.
+Use approved or synthetic information. Do not paste customer, employee, financial, confidential, or personal data into an unapproved tool. This workshop is practical guidance, not legal advice; organisation and sector policies still apply.
 
-## 120-minute run of show
+## Slides · 0–30 min
 
-The slide-led portion is 25 minutes total. Slides 9–12 are working surfaces for the live build and audience interaction, not another 95 minutes of presentation.
+### Slide 1 — Code With AI · 0–1 min
 
-### Slides 1–2 · Open and calibrate · 0–5 min
+- Promise: “We will spend less time talking about AI and more time building with it.”
+- Preview that the build will happen in Codex, with the same workflow shown briefly in Cursor.
+- Learning contract: participants are not expected to master every tool or layer; they will see one complete, reviewable build loop.
 
-**Slide 1 — Code With AI (1 min)**
+### Slide 2 — Audience pulse · 1–5 min
 
-- Promise: “We will not try to cover every AI tool. We will build one useful workflow and examine why we should—or should not—trust it.”
-- Set the live-demo expectation early: questions are welcome, and imperfect intermediate results are part of the lesson.
+- Ask the three questions openly; do not turn them into a multiple-choice poll.
+- Take two or three short responses total. Listen for experience, a useful workflow, and what the room needs to see before trusting a result.
+- End at five minutes even if the answers invite longer stories. Use them to tune examples during the build.
 
-**Slide 2 — Audience pulse (4 min)**
+### Slide 3 — The working loop · 5–9 min
 
-- Run three fast show-of-hands questions in order.
-- Use the answers to tune the room:
-  - If most are new, define an agent as “AI that can inspect information, use tools, and take bounded steps.”
-  - If approved access is unclear, state that the entire demo remains synthetic.
-  - Ask one or two people to name the workflow behind their vote; do not troubleshoot it yet.
+- Context: give the agent the situation.
+- Clarify: resolve the decisions that change the work.
+- Plan: make the path reviewable before building.
+- Build: create the smallest coherent version.
+- Review: inspect the result and feed what you learn back into the loop.
+- Ask participants to watch for every step during the demo.
 
-### Slides 3–8 · Concepts participants need during the demo · 5–25 min
+### Slide 4 — What makes work agentic · 9–11 min
 
-**Slide 3 — Outcome and map (2 min)**
+- The useful distinction is not a product label. It is whether the model has instructions, tools, and permission to do work beyond the conversation.
+- The ability to take constrained action is what changes the stakes. Keep this to one distinction; the loop already has its own slide.
 
-- Name the contract: 20 minutes of framing, 70 minutes of live work, then debrief and adaptation.
-- The demo is the centre of the workshop, not an illustration after a lecture.
+### Slide 5 — Context engineering · 11–14 min
 
-**Slide 4 — Agentic work and the loop (4 min)**
+- A capable model still guesses when it lacks project files, user needs, constraints, examples, and references.
+- Context is not one giant prompt. It is the relevant situation, made available at the moment the agent needs it.
+- Better context improves decisions; it does not remove the need to review them.
+- Bridge: “The brief is how we package the relevant context, rules, and proof for this task.”
 
-- The durable distinction is not “chat versus a magic agent.” It is the combination of instructions, reachable tools, permissions, and a repeatable working loop.
-- Read the five verbs once. Tell participants to watch for each during the demo.
-
-**Slide 5 — Smallest useful pilot (4 min)**
-
-- Walk from the centre outward. The outermost action comes later, after evidence and controls.
-- Strong first pilots create a useful draft, analysis, or preview before they ever send, publish, approve, pay, or contact someone.
-- Say explicitly: high-impact customer decisions, money movement, and sensitive-data workflows are poor first pilots.
-
-**Slide 6 — The four-field brief (4 min)**
+### Slide 6 — The four-field brief · 14–18 min
 
 - Outcome prevents activity without value.
 - Context reduces guessing.
-- Access + Rules bounds reach.
+- Access + Rules bounds what the agent may read or change.
 - Proof makes “done” observable before work starts.
-- A long prompt is not the goal; a reviewable work contract is.
+- Treat the brief as a reviewable work contract, not a prompt-writing trick.
 
-**Slide 7 — Reach and human gate (3 min)**
+### Slide 7 — A real app is more than a screen · 18–22 min
 
-- Ask four questions: What data can it see? Whose identity and access does it use? What can it do outside the workspace? Can we trace and reverse the action?
-- Point to the orange gate. In a first pilot, stop there.
-- Autonomy is earned by evidence and controls, not granted because the output looked fluent once.
+- Quickly name the seven layers: interface, logic, database, APIs, authentication, deployment, and logs.
+- The audience does not need to master each layer. They need to understand that a polished screen alone is not a working app.
+- During the demo, call out which layer is changing so the build does not feel like magic.
+- Scope boundary: the interface and local state will be real today. APIs, authentication, deployment, logs, and external submission stay mapped or safely mocked unless an approved integration already exists.
 
-**Slide 8 — Test before trust (3 min)**
+### Slide 8 — Test before trust · 22–25 min
 
-- “Does it work?” is too broad. Define a small set of representative and awkward examples.
-- Evidence should connect claims to sources, show intended changes, reveal unknowns, and keep rollback ready.
+- “Does it work?” is too broad. Define representative cases and the failure you most care about.
+- Evidence should show the behavior, source or change, remaining unknowns, and a path to recover.
 
-### Slide 9 · Live build · 25–95 min
+### Slide 9 — Define what good means · 25–30 min
 
-**Mission:** turn a synthetic sales CSV into a prioritised, source-linked follow-up brief. Produce a safe preview only; do not connect a CRM or contact a customer.
+- Use the youth job-finding app to turn an ambition into five observable checks.
+- Separate product criteria from implementation: “use 10 matching factors” is a requirement; the database or model choice is an implementation decision.
+- Point out that each criterion can be demonstrated or tested during the live build.
+- The 10 non-sensitive factors are defined for this synthetic workshop dataset; they are not a validated hiring model.
+- “Submit” means returning a mocked receipt. The demo does not send a real job application.
 
-**25–32 min — Inspect**
+## Live build · 30–120 min
 
-- Open the synthetic CSV.
-- Ask the agent to describe columns, data quality problems, missing values, and assumptions before proposing work.
-- Show why inspection comes before prompting for a polished answer.
+### Mission
 
-**32–40 min — Frame**
+Build a simple app that helps young people find suitable jobs. Prioritise one complete, testable path over a broad but disconnected set of screens.
 
-- Give the four-field brief on the slide.
-- Define a lightweight prioritisation policy and explicitly mark it as a workshop assumption, not business truth.
-- Confirm the stop condition: no credentials, no customer contact, no live CRM write.
+### 30–38 min — Orient the room and the tools
 
-**40–47 min — Plan**
+- Open the codebase in Codex and show the same project in Cursor.
+- State the four-field brief and the five quality checks from slide 9.
+- Explain that Codex is the primary build surface today; Cursor demonstrates that the method transfers between tools.
 
-- Ask for a short, reviewable plan.
-- Challenge one step or assumption in front of the room. This makes human direction visible.
-- Approve only the smallest coherent slice.
+### 38–48 min — Context and inspection
 
-**47–72 min — Build**
+- Inspect the repo, data shape, existing components, and constraints before changing anything.
+- Ask the agent to state what it knows, what it inferred, and what could change the plan.
 
-- Generate a repeatable transformation and a readable follow-up brief.
-- Require every recommendation to retain a source-row identifier.
-- Prefer a file or rendered preview the room can inspect over an answer that exists only in chat.
+### 48–58 min — Clarify and plan
 
-**72–87 min — Prove**
+- Decide the smallest complete flow: onboarding → matched jobs → explanation → saved progress → application form.
+- Ask for a short plan that maps work to the seven app layers and the five acceptance checks.
+- Correct at least one assumption in front of the room so human direction remains visible.
 
-- Run representative cases and at least two awkward cases: a missing field, contradictory signals, a duplicate, or an invalid value.
-- Check that the output is traceable, does not invent contact details, and states uncertainty.
-- Review the change summary or diff and rerun after any correction.
+### 58–82 min — Build the core flow
 
-**87–95 min — Human gate**
+- Create the onboarding and matching experience.
+- Capture the 10 agreed factors in a structured form rather than burying them in prose.
+- Show why a complete flow matters more than adding another decorative screen.
 
-- Show the preview as the proposed action.
-- Ask the room whether it has earned an internal human review—not autonomous execution.
-- Stop before any external action. Name what would need to exist before a real integration: approved data handling, least privilege, logging, named accountability, testing, and rollback.
+### 82–100 min — Add state and submission
 
-If the live build fails, keep the failure visible. Inspect the error, narrow the task, and rerun the proof. Recovery is part of the working loop.
+- Save progress and restore it on return.
+- Add validation and a successful application-form submission path using synthetic data.
+- Keep any external write mocked or safely contained unless an approved integration already exists.
 
-### Slide 10 · Debrief · 95–103 min
+### 100–112 min — Review, test, and repair
 
-- Move left to right. Spend the most time on Evidence.
-- Ask the room for one concrete observation per card.
-- Separate “the agent said it worked” from evidence the room actually saw.
-- End with Unknown: what would still need production, policy, security, or domain review?
+- Run the five checks from slide 9 plus one awkward case: missing information, an invalid field, or a weak match.
+- Inspect the app in the browser, not only the code or the agent’s summary.
+- Fix the highest-impact failure and rerun the check. Make the repair loop explicit.
 
-### Slide 11 · Participant exercise · 103–113 min
+### 112–116 min — Show the same loop in Cursor
 
-**6 minutes — individual draft**
+- Open the same codebase and demonstrate how the brief, project context, and verification standard carry over.
+- Avoid a feature-by-feature tool comparison. The transferable method is the point.
 
-- Choose one real workflow, but describe data categories rather than sharing confidential details.
-- Write one sentence per field. Keep the outcome small enough to review manually.
+### 116–120 min — Close inside the demo
 
-**4 minutes — pair-check**
+- Ask: which part of the result earned trust, and what remains unproven?
+- Take final questions while the working app remains visible.
 
-- Partner challenges four things: useful, reversible, approved data, named approver.
-- If any answer is uncertain, shrink the pilot or turn the external action into a preview.
+If the build runs behind, protect the complete onboarding-to-submission path and the final browser verification. Cut breadth before cutting proof.
 
-### Slide 12 · Shareback, next move, Q&A · 113–120 min
-
-- Invite two 30-second pilot briefs.
-- Close each with one sharpening question, not a full solution.
-- Ask everyone to name the smallest action they can take next Monday: identify an owner, secure an approved dataset, write the brief, or define five test cases.
-- Use remaining time for Q&A.
-
-## Primary sources used for the update
-
-### Singapore enterprise context and governance
+## Primary sources retained from the update
 
 - Enterprise Singapore, practical AI workshop themes: <https://www.enterprisesg.gov.sg/grow-your-business/boost-capabilities/productivity-and-digitalisation/driving-entrepreneurship-with-ai>
-- IMDA, Singapore Digital Economy Report 2025 and enterprise AI adoption: <https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/press-releases/2025/singapore-digital-economy>
 - IMDA, Model AI Governance Framework for Agentic AI: <https://www.imda.gov.sg/resources/press-releases-factsheets-and-speeches/factsheets/2026/updated-model-ai-governance-framework-for-agentic-ai>
 - IMDA, Starter Kit for testing LLM applications: <https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/starter-kit-for-testing-llm-based-applications-for-safety-and-reliability.pdf>
 - PDPC, advisory guidelines on personal data in AI systems: <https://www.pdpc.gov.sg/guidelines-and-consultation/2024/02/advisory-guidelines-on-use-of-personal-data-in-ai-recommendation-and-decision-systems>
 - CSA Singapore, Guidelines on Securing AI Systems: <https://www.csa.gov.sg/news-events/press-releases/launch-of-guidelines-and-companion-guide-on-securing-artificial-intelligence-systems/>
 
-### Agent workflows and evaluation
-
-- Anthropic, Claude Code best practices: <https://www.anthropic.com/engineering/claude-code-best-practices>
-- Anthropic, effective context engineering for AI agents: <https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents>
-- Anthropic, demystifying evals for AI agents: <https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents>
-- Anthropic, sandboxing and safer agent execution: <https://www.anthropic.com/engineering/claude-code-sandboxing>
-- OpenAI, AGENTS.md guidance: <https://learn.chatgpt.com/docs/agent-configuration/agents-md>
-- OpenAI, MCP and connector safety: <https://developers.openai.com/api/docs/guides/tools-connectors-mcp>
-- OpenAI, evaluation best practices: <https://developers.openai.com/api/docs/guides/evaluation-best-practices>
+The youth job-finding app and its five quality checks are illustrative workshop criteria, not empirical claims about young job seekers.

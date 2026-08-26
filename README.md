@@ -1,8 +1,8 @@
 # Code With AI — Enterprise Singapore
 
-A 12-slide, two-hour practical workshop deck for an Enterprise Singapore audience. This is a separate iteration of the original two-day `code-with-ai` deck, with its own repository and Vercel project.
+A 10-slide, two-hour practical workshop deck for an Enterprise Singapore audience. This is a separate iteration of the original two-day `code-with-ai` deck, with its own repository and Vercel project.
 
-The workshop is designed around one outcome: help a participant choose and frame one useful, safe AI workflow they can pilot next Monday. Slides establish the working loop and its controls; the 70-minute live build supplies the depth.
+The workshop is demo-first: about 30 minutes of slides establish the working loop, context, app anatomy, and a concrete quality bar. The remaining 90 minutes are reserved for building and testing an app live in Codex, with a short comparison to Cursor.
 
 ## Run locally
 
@@ -26,13 +26,10 @@ Open `http://localhost:3000/slides/1`.
 | Time | Segment | Slides |
 | --- | --- | --- |
 | 0–5 min | Opening and audience pulse | 1–2 |
-| 5–25 min | Mental model, pilot choice, brief, controls, proof | 3–8 |
-| 25–95 min | Live build: synthetic sales data to a source-linked brief | 9 |
-| 95–103 min | Demo debrief | 10 |
-| 103–113 min | Participant pilot exercise | 11 |
-| 113–120 min | Shareback, next move, and Q&A | 12 |
+| 5–30 min | Working loop, context, brief, app anatomy, proof, and quality bar | 3–9 |
+| 30–120 min | Live app build in Codex; same workflow shown briefly in Cursor; Q&A throughout | 10 |
 
-Only the first 25 minutes are slide-led instruction. Slides 9–12 stay visible as demo, debrief, exercise, and closing prompts; they are not an additional lecture block.
+Only the first 30 minutes are slide-led. Slide 10 is the handoff into the live build, not another teaching segment.
 
 ## Editorial record
 
