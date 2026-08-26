@@ -285,8 +285,9 @@ export default function Deck({ initialSlide }: { initialSlide: number }) {
   const go = useCallback(
     (next: number) => {
       const destination = Math.min(Math.max(next, 1), total);
-      router.push(`/slides/${destination}`);
       setOverview(false);
+      overviewRef.current?.close();
+      router.push(`/slides/${destination}`);
     },
     [router, total],
   );
