@@ -392,15 +392,19 @@ export default function Deck({ initialSlide }: { initialSlide: number }) {
           </div>
           <div className="overview-grid">
             {slides.map((item, index) => (
-              <button
+              <a
                 key={`${item.section}-${item.title}`}
+                href={`/slides/${index + 1}`}
                 className={index + 1 === current ? "active" : ""}
-                onClick={() => go(index + 1)}
+                onClick={() => {
+                  setOverview(false);
+                  overviewRef.current?.close();
+                }}
                 aria-current={index + 1 === current ? "page" : undefined}
               >
                 <span>{String(index + 1).padStart(2, "0")} · {item.section}</span>
                 <strong>{item.title}</strong>
-              </button>
+              </a>
             ))}
           </div>
       </dialog>
